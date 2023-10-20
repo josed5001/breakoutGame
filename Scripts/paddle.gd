@@ -8,7 +8,7 @@ var half_paddle_width: float
 var is_ball_started = false
 
 
-@export var speed = 300
+@export var speed = 400
 @export var camera: Camera2D
 
 @onready var ball = $"../Ball" as Ball
@@ -45,3 +45,5 @@ func _input(event):
 func on_ball_lost():
 	is_ball_started = false
 	direction = Vector2.ZERO
+func get_width():
+	return collision_shape_2d.shape.get_rect().size.x
