@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://dpa6s8m1h8yyd"]
+[gd_scene load_steps=5 format=3 uid="uid://dpa6s8m1h8yyd"]
 
 [ext_resource type="Script" path="res://Scripts/ui.gd" id="1_yftty"]
 [ext_resource type="FontFile" uid="uid://c4aulvc2mschk" path="res://Assets/VT323-Regular.ttf" id="2_4y8q2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_13snx"]
 bg_color = Color(0.803922, 0, 0.0588235, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b150e"]
+bg_color = Color(0.2, 0.690196, 0, 1)
 
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_yftty")
@@ -64,4 +67,35 @@ horizontal_alignment = 1
 layout_mode = 2
 text = "RESTART GAME"
 
+[node name="LevelWonContainer" type="CenterContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="LevelWonContainer"]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_b150e")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LevelWonContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="LevelWonContainer/Panel/VBoxContainer"]
+layout_mode = 2
+text = "too easy?"
+horizontal_alignment = 1
+
+[node name="LevelWonButton" type="Button" parent="LevelWonContainer/Panel/VBoxContainer"]
+layout_mode = 2
+text = "yep"
+
 [connection signal="pressed" from="GameOverContainer/Panel/VBoxContainer/GameLostButton" to="." method="_on_game_lost_button_pressed"]
+[connection signal="pressed" from="LevelWonContainer/Panel/VBoxContainer/LevelWonButton" to="." method="_on_level_won_button_pressed"]

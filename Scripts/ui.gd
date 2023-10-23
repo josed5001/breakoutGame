@@ -16,3 +16,8 @@ func game_over():
 
 func _on_game_lost_button_pressed():
 	get_tree().reload_current_scene()
+
+
+func _on_level_won_button_pressed():
+	LevelDefinitions.current_level = 2
+	get_tree().reload_current_scene()
