@@ -17,7 +17,7 @@ var brick_count = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	spawn_from_definition(LevelDefinitions.level_2)
+	spawn_from_definition(LevelDefinitions.get_current_level())
 
 
 func spawn():
@@ -72,5 +72,5 @@ func spawn_from_definition(level_definition):
 func on_brick_destroyed():
 	brick_count -= 1
 	if brick_count == 0:
-		ball.stop_ball()
+		ball.reset_ball()
 		ui.on_level_won()
