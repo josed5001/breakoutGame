@@ -50,4 +50,4 @@ brick_scene = ExtResource("7_8xkuv")
 spawn_start = NodePath("../Marker2D")
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(-1, -108)
+position = Vector2(-1, -160)
