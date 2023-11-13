@@ -34,7 +34,7 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_fonts/font = ExtResource("2_4y8q2")
 theme_override_font_sizes/font_size = 32
-text = "Lifes : 3"
+text = "Lifes : 5"
 
 [node name="GameOverContainer" type="CenterContainer" parent="."]
 visible = false
