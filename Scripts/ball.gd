@@ -14,6 +14,7 @@ var speed_up_factor = 1.05
 var start_position: Vector2
 var last_collider_id
 @onready var collision_shape_2d = $CollisionShape2D
+@onready var fire = $"../Fire"
 
 # audio var
 @onready var ball_collide_sound = $"../MusicPack/BallCollideSound"
@@ -38,10 +39,15 @@ func _physics_process(delta):
 	if collider is Brick:
 		collider.decrease_level()
 	
-	if (collider is Brick or collider is Paddle):
+	if (collider is Paddle):
 		ball_collision(collider)
 		ball_collide_sound.play()
 		
+	elif (collider is Brick):
+		ball_collision(collider)
+		fire.show()
+		await get_tree().create_timer(5.0).timeout
+		fire.hide()
 	else:
 		velocity = velocity.bounce(collision.get_normal())
 		balln_wall_collide_sound.play()

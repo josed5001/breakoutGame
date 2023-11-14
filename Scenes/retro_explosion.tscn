@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://tx2etmqjhtl4"]
+
+[ext_resource type="Texture2D" uid="uid://03yqi76gmijd" path="res://Assets/Explosion_Sheet.png" id="1_jeq35"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_g6dmc"]
+particles_animation = true
+particles_anim_h_frames = 5
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_t5ryu"]
+emission_shape = 1
+emission_sphere_radius = 90.0
+particle_flag_disable_z = true
+gravity = Vector3(1, 1, 1)
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_max = 2.5
+anim_speed_min = 1.0
+anim_speed_max = 5.0
+
+[node name="RetroExplosion" type="GPUParticles2D"]
+material = SubResource("CanvasItemMaterial_g6dmc")
+position = Vector2(199, 111)
+amount = 10
+process_material = SubResource("ParticleProcessMaterial_t5ryu")
+texture = ExtResource("1_jeq35")
+lifetime = 1.5
