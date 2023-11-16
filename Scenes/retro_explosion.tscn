@@ -22,7 +22,8 @@ anim_speed_max = 5.0
 [node name="RetroExplosion" type="GPUParticles2D"]
 material = SubResource("CanvasItemMaterial_g6dmc")
 position = Vector2(199, 111)
+emitting = false
 amount = 10
 process_material = SubResource("ParticleProcessMaterial_t5ryu")
 texture = ExtResource("1_jeq35")
-lifetime = 1.5
+one_shot = true
