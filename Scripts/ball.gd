@@ -14,8 +14,12 @@ var speed_up_factor = 1.05
 var start_position: Vector2
 var last_collider_id
 @onready var collision_shape_2d = $CollisionShape2D
+
 @onready var fire = $Fire
-@onready var retro_explosion = $"../RetroExplosion"
+var fire_rotation = 1
+
+@onready var retro_explosion = $RetroExplosion
+
 
 # audio var
 @onready var ball_collide_sound = $"../MusicPack/BallCollideSound"
@@ -35,7 +39,7 @@ func _physics_process(delta):
 	if (!collision):
 		return
 		
-	
+	fire.rotation += fire_rotation * delta
 	var collider =  collision.get_collider()
 	if collider is Brick:
 		collider.decrease_level()
@@ -46,11 +50,9 @@ func _physics_process(delta):
 		
 	elif (collider is Brick):
 		ball_collision(collider)
-		fire.show()
-		retro_explosion.show()
-		retro_explosion.emitting
-		await get_tree().create_timer(5.0).timeout
-		retro_explosion.hide()
+		retro_explosion.emitting = true
+		ball_collide_sound.play()
+		
 	else:
 		velocity = velocity.bounce(collision.get_normal())
 		balln_wall_collide_sound.play()
