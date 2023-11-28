@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://tx2etmqjhtl4"]
+[gd_scene load_steps=6 format=3 uid="uid://tx2etmqjhtl4"]
 
 [ext_resource type="Texture2D" uid="uid://03yqi76gmijd" path="res://Assets/Explosion_Sheet.png" id="1_jeq35"]
 
@@ -8,6 +8,13 @@ particles_anim_h_frames = 5
 particles_anim_v_frames = 1
 particles_anim_loop = false
 
+[sub_resource type="Gradient" id="Gradient_3dhi1"]
+offsets = PackedFloat32Array(0, 0.372093, 0.406977, 0.622093, 0.668605, 0.837209, 0.889535, 1)
+colors = PackedColorArray(1, 1, 0, 1, 1, 1, 0.151163, 1, 1, 0.580392, 0.0823529, 1, 0.848412, 0.378975, 0.0764067, 1, 0.488243, 0.183536, 0.0201744, 1, 0.569172, 0.00794335, 0.0654529, 1, 0.272405, 0.0026532, 0.0218069, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_sdrwg"]
+gradient = SubResource("Gradient_3dhi1")
+
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_t5ryu"]
 emission_shape = 1
 emission_sphere_radius = 90.0
@@ -16,6 +23,7 @@ gravity = Vector3(1, 1, 1)
 orbit_velocity_min = 0.0
 orbit_velocity_max = 0.0
 scale_max = 2.5
+color_ramp = SubResource("GradientTexture1D_sdrwg")
 anim_speed_min = 1.0
 anim_speed_max = 5.0
 
@@ -26,5 +34,5 @@ emitting = false
 amount = 10
 process_material = SubResource("ParticleProcessMaterial_t5ryu")
 texture = ExtResource("1_jeq35")
-lifetime = 0.1
+lifetime = 0.5
 one_shot = true

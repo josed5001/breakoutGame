@@ -6,6 +6,7 @@ class_name UI
 @onready var lifes_label = %LifesLabel
 @onready var game_over_container = $GameOverContainer
 @onready var level_won_container = $LevelWonContainer
+@onready var game_complete_container = $GameCompleteContainer
 
 # var Audios
 @onready var music = $"../MusicPack/Music"
@@ -28,10 +29,19 @@ func _on_game_lost_button_pressed():
 
 
 func on_level_won():
-	level_won_container.show()
-	music.stop()
-	win_audio.play()
+	if LevelDefinitions.current_level != 3:
+		level_won_container.show()
+		music.stop()
+		win_audio.play()
+	else:
+		game_complete_container.show()
+		music.stop()
 
 func _on_level_won_button_pressed():
 	LevelDefinitions.current_level += 1
+	get_tree().reload_current_scene()
+	
+
+func _on_game_won_button_pressed():
+	LevelDefinitions.current_level = 1
 	get_tree().reload_current_scene()

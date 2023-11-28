@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dwmp5aqj3anp8"]
+[gd_scene load_steps=8 format=3 uid="uid://dwmp5aqj3anp8"]
 
 [ext_resource type="Texture2D" uid="uid://caa3sidsnduwy" path="res://Assets/Flame.png" id="1_8by78"]
 
@@ -13,6 +13,13 @@ colors = PackedColorArray(0.956863, 1, 0, 1, 0.960058, 0.451707, 0.0740741, 1, 1
 gradient = SubResource("Gradient_rfrn4")
 width = 10
 
+[sub_resource type="Curve" id="Curve_iaq0p"]
+_data = [Vector2(0, 0.473684), 0.0, 0.0, 0, 0, Vector2(0.788177, 0.589474), 0.0, 0.0, 0, 0, Vector2(0.935961, 0.873684), 2.73041, 2.73041, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_ownk1"]
+curve = SubResource("Curve_iaq0p")
+
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_eqe5b"]
 lifetime_randomness = 0.3
 particle_flag_disable_z = true
@@ -24,8 +31,8 @@ angular_velocity_max = 100.0
 orbit_velocity_min = 0.0
 orbit_velocity_max = 0.0
 angle_max = 720.0
-scale_min = 0.5
-scale_max = 0.5
+scale_min = 0.0
+scale_curve = SubResource("CurveTexture_ownk1")
 color_ramp = SubResource("GradientTexture1D_kaouw")
 
 [node name="Fire" type="GPUParticles2D"]
@@ -34,4 +41,5 @@ position = Vector2(108, 106)
 amount = 16
 process_material = SubResource("ParticleProcessMaterial_eqe5b")
 texture = ExtResource("1_8by78")
+lifetime = 0.5
 explosiveness = 0.1

@@ -24,6 +24,7 @@ var fire_rotation = 1
 # audio var
 @onready var ball_collide_sound = $"../MusicPack/BallCollideSound"
 @onready var balln_wall_collide_sound = $"../MusicPack/BallnWallCollideSound"
+@onready var ball_brick_collide = $"../MusicPack/BallBrickCollide"
 
 
 
@@ -39,7 +40,7 @@ func _physics_process(delta):
 	if (!collision):
 		return
 		
-	fire.rotation += fire_rotation * delta
+	
 	var collider =  collision.get_collider()
 	if collider is Brick:
 		collider.decrease_level()
@@ -51,7 +52,7 @@ func _physics_process(delta):
 	elif (collider is Brick):
 		ball_collision(collider)
 		retro_explosion.emitting = true
-		ball_collide_sound.play()
+		ball_brick_collide.play()
 		
 	else:
 		velocity = velocity.bounce(collision.get_normal())
