@@ -19,6 +19,7 @@ var last_collider_id
 var fire_rotation = 1
 
 @onready var retro_explosion = $RetroExplosion
+@onready var camera = $"../Camera2D" as Camera2D
 
 
 # audio var
@@ -52,6 +53,7 @@ func _physics_process(delta):
 	elif (collider is Brick):
 		ball_collision(collider)
 		retro_explosion.emitting = true
+		camera.apply_shake()
 		ball_brick_collide.play()
 		
 	else:
