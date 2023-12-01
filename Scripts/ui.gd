@@ -4,10 +4,12 @@ class_name UI
 
 
 @onready var lifes_label = %LifesLabel
+@onready var level_counter = $MarginContainer/HBoxContainer2/LevelCounter
 @onready var game_over_container = $GameOverContainer
 @onready var level_won_container = $LevelWonContainer
 @onready var game_complete_container = $GameCompleteContainer
 
+var level = LevelDefinitions.levels
 # var Audios
 @onready var music = $"../MusicPack/Music"
 @onready var fail_audio = $"../MusicPack/FailAudio"
@@ -17,6 +19,9 @@ class_name UI
 
 func set_lifes(lifes: int):
 	lifes_label.text = "Lifes: %d" % lifes
+
+func set_level(level: int):
+	level_counter.text = "Level: %d" % level
 
 
 func game_over():

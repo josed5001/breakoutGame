@@ -39,6 +39,20 @@ theme_override_fonts/font = ExtResource("2_4y8q2")
 theme_override_font_sizes/font_size = 32
 text = "Lifes : 5"
 
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="LevelCounter" type="Label" parent="MarginContainer/HBoxContainer2"]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("2_4y8q2")
+theme_override_font_sizes/font_size = 40
+text = "Level: 1"
+horizontal_alignment = 2
+
 [node name="GameOverContainer" type="CenterContainer" parent="."]
 visible = false
 anchors_preset = 15
