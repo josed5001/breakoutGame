@@ -8,7 +8,7 @@ var half_paddle_width: float
 var is_ball_started = false
 
 
-@export var speed = 400
+@export var speed = 700
 @export var camera: Camera2D
 
 @onready var ball = $"../Ball" as Ball
